@@ -1,0 +1,9 @@
+pandas
+re
+snscrape
+google_play_scraper
+BeautifulSoup
+requests
+tqdm
+random
+time
