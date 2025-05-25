@@ -3,7 +3,7 @@ from google_play_scraper import reviews
 
 
 # Scraping Ulasan Aplikasi dari Google Play Store
-def scrape_reviews(app_id: str, count: int = 10000, lang: str = 'id') -> pd.DataFrame:
+def scrape_reviews(app_id: str, count: int = 60000, lang: str = 'id') -> pd.DataFrame:
     result, _ = reviews(app_id, lang=lang, count=count)
     df = pd.DataFrame(result)
     # bagian berisi kolom yang ingin kita ambil
@@ -30,7 +30,7 @@ def prepare_dataset(app_id: str, output_path: str = "dataset_labeled.csv") -> pd
     df = df[["userName", "content", "score", "label", "at"]]
     df.to_csv(output_path, index=False)
     
-
+    # data disimpan ke dalam CSV 
     print(f"Dataset berhasil disimpan: {output_path}")
     return df
 
