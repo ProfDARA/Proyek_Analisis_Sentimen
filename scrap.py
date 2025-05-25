@@ -41,7 +41,7 @@ def prepare_dataset(app_id: str, output_path: str = "dataset_labeled.csv") -> pd
     df = df[df["content"].str.strip() != ""]
     df["label"] = df["score"].apply(label_sentiment)
 
-    # Ambil masing-masing 4000 data untuk setiap label
+    # percobaan mengambil masing-masing 50000 data untuk setiap label
     df_positif = df[df["label"] == "positif"].sample(n=50000, random_state=42) if len(df[df["label"] == "positif"]) >= 50000 else df[df["label"] == "positif"]
     df_negatif = df[df["label"] == "negatif"].sample(n=50000, random_state=42) if len(df[df["label"] == "negatif"]) >= 50000 else df[df["label"] == "negatif"]
     df_netral = df[df["label"] == "netral"].sample(n=50000, random_state=42) if len(df[df["label"] == "netral"]) >= 50000 else df[df["label"] == "netral"]
